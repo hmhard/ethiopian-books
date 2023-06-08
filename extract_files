@@ -1,10 +1,17 @@
 #!/bin/bash
 echo "export file lists"
-ls
+echo "# Ethiopian Books" >> README.md
+echo "## [Please follow me](https://github.com/hmhard)" >> README.md
+echo "## Star this repository" >> README.md
+echo "| # | Name |" >> README.md
+echo "| -- | -- |" >> README.md
+INDEX=1
 for filename in files/*.pdf; do
     FILE=${filename//_/ }
-    FILE=${filename//files\//}
-
-    echo "[${FILE}](${filename// /_})"  >> README.md 
-    echo "" >> README.md
+    FILE=${FILE//files\//}
+    FILE=${FILE//\.pdf/}
+    echo "| ${INDEX} | [${FILE}](${filename// /_}) |"  >> README.md 
+    # echo "" >> README.md
+    let INDEX=${INDEX}+1
 done
+echo " | -- | -- | " >> README.md
