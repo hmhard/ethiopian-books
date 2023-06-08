@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "export file lists"
+ls
+for filename in files/*.pdf; do
+    FILE=${filename//_/ }
+    FILE=${filename//files\//}
+
+    echo "[${FILE}](${filename// /_})"  >> README.md 
+    echo "" >> README.md
+done
