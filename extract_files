@@ -12,7 +12,7 @@ for filename in files/*.pdf; do
     FILE=${FILE//\.pdf/}
     PAGES=$(pdfinfo $filename | awk '/^Pages:/ {print $2}') 
 
-    echo "| ${INDEX} | [${FILE}](${filename// /_}) | ${PAGES} | "  >> README.md 
+    echo "| ${INDEX} | [${FILE}](${filename// /%20}) | ${PAGES} | "  >> README.md 
     # echo "" >> README.md
     let INDEX=${INDEX}+1
 done
